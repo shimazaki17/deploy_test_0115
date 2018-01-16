@@ -2,9 +2,11 @@ def wsgi_app(environ, start_response):
     status = '200 OK'
     response_headers = [('Content-type', 'text/plain')]
     start_response(status, response_headers)
-    response_body = 'Hello World2'
-    yield response_body.encode()
-
+    from view import api, hello
+    application = Flask(__name__)
+    modules_define = [api.app, hello.app]
+    for app in modules_define:
+        application.register_blueprint(app)
 
 if __name__ == '__main__':
     from wsgiref.simple_server import make_server
