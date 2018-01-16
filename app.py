@@ -6,9 +6,9 @@ def wsgi_app(environ, start_response):
     # yield response_body.encode()
 
     # from flask import Flask
-    from view import api, input2
+    from view import api, hello
     application = Flask(__name__)
-    modules_define = [api.app, input2.app]
+    modules_define = [api.app, hello.app]
     for app in modules_define:
         application.register_blueprint(app)
 
