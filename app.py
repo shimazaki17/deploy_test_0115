@@ -5,12 +5,6 @@ def wsgi_app(environ, start_response):
     response_body = 'Hello World2'
     yield response_body.encode()
 
-    # from flask import Flask
-    # from view import api, hello
-    # application = Flask(__name__)
-    # modules_define = [api.app, hello.app]
-    # for app in modules_define:
-    #     application.register_blueprint(app)
 
 if __name__ == '__main__':
     from wsgiref.simple_server import make_server
