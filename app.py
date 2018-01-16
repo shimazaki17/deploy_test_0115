@@ -1,14 +1,14 @@
 def wsgi_app(environ, start_response):
-    # status = '200 OK'
-    # response_headers = [('Content-type', 'text/plain')]
-    # start_response(status, response_headers)
+    status = '200 OK'
+    response_headers = [('Content-type', 'text/plain')]
+    start_response(status, response_headers)
     # response_body = 'Hello World2'
     # yield response_body.encode()
 
     # from flask import Flask
-    from view import api, 0113_input
+    from view import api, input2
     application = Flask(__name__)
-    modules_define = [api.app, 0113_input.app]
+    modules_define = [api.app, input2.app]
     for app in modules_define:
         application.register_blueprint(app)
 
