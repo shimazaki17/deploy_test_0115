@@ -1,7 +1,5 @@
 def wsgi_app(environ, start_response):
-    status = '200 OK'
-    response_headers = [('Content-type', 'text/plain')]
-    start_response(status, response_headers)
+
     from view import api, hello
     application = Flask(__name__)
     modules_define = [api.app, hello.app]
